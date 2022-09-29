@@ -36,42 +36,42 @@ function retirar(){
 
 function transferir(){
     alert("Se presiono el boton de transferir")
-    modRetirar.modal('hide')
+    modTransferir.modal('hide')
 }
 
 function bloqdes(){
     alert("Se presiono el boton de bloquear o desbloquear")
-    modRetirar.modal('hide')
+    modBloqDes.modal('hide')
 }
 
 function recargar(){
     alert("Se presiono el boton de aplicar racarga de tiempo aire")
-    modRetirar.modal('hide')
+    modTiempo.modal('hide')
 }
 
 function pagarTarjeta(){
     alert("Se presiono el boton de pagar tarjeta")
-    modRetirar.modal('hide')
+    modPTarjeta.modal('hide')
 }
 
 function pagarServicio(){
     alert("Se presiono el boton de aplicar pagar servicio")
-    modRetirar.modal('hide')
+    modPServicio.modal('hide')
 }
 
 function verNip(){
     alert("Se presiono el boton de ver nip")
-    modRetirar.modal('hide')
+    modVernip.modal('hide')
 }
 
 function estadoCuenta(){
     alert("Se presiono el boton de ver estado de cuenta")
-    modRetirar.modal('hide')
+    modEstado.modal('hide')
 }
 
 function movimientos(){
     alert("Se presiono el boton de ver ultimos 20 movimientos")
-    modRetirar.modal('hide')
+    modMovimientos.modal('hide')
 }
 
 //eventos de las operaciones
