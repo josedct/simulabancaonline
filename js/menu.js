@@ -1,21 +1,87 @@
 
 //modales
-let modDepositar = document.querySelector("#formDepo")
-let modRetirar = document.querySelector("#formReti")
+let modDepositar = $("#formDepo")
+let modRetirar = $("#formReti")
+let modTransferir = $("#formTran")
+let modBloqDes = $("#formBloq")
+let modTiempo = $("#formTiem")
+let modPTarjeta = $("#formPtar")
+let modPServicio = $("#formPser")
+let modVernip = $("#formVnip") 
+let modEstado = $("#formEcue")
+let modMovimientos = $("#formMovi") 
 
 //botones de operacion
 let btDepositar = document.querySelector("#btDepo") 
 let btRetirar = document.querySelector("#btReti")
+let btTransferir = document.querySelector("#btTran")
+let btBloqDes = document.querySelector("#btBloq")
+let btTiempo = document.querySelector("#btTiem")
+let btPTarjeta = document.querySelector("#btPtar")
+let btPServicio = document.querySelector("#btPser")
+let btVernip = document.querySelector("#btVnip") 
+let btEstado = document.querySelector("#btEcue")
+let btMovimientos = document.querySelector("#btMovi") 
 
-btDepositar.addEventListener("click",depositar)
-btRetirar.addEventListener("click",retirar)
-
+//funciones de las operaciones
 function depositar(){
     alert("Se presiono el boton de aplicar deposito")
-    $("#formDepo").modal('hide')
+    modDepositar.modal('hide')
 }
 
 function retirar(){
     alert("Se presiono el boton de aplicar retirar")
-    $("#formReti").modal('hide')
+    modRetirar.modal('hide')
 }
+
+function transferir(){
+    alert("Se presiono el boton de transferir")
+    modRetirar.modal('hide')
+}
+
+function bloqdes(){
+    alert("Se presiono el boton de bloquear o desbloquear")
+    modRetirar.modal('hide')
+}
+
+function recargar(){
+    alert("Se presiono el boton de aplicar racarga de tiempo aire")
+    modRetirar.modal('hide')
+}
+
+function pagarTarjeta(){
+    alert("Se presiono el boton de pagar tarjeta")
+    modRetirar.modal('hide')
+}
+
+function pagarServicio(){
+    alert("Se presiono el boton de aplicar pagar servicio")
+    modRetirar.modal('hide')
+}
+
+function verNip(){
+    alert("Se presiono el boton de ver nip")
+    modRetirar.modal('hide')
+}
+
+function estadoCuenta(){
+    alert("Se presiono el boton de ver estado de cuenta")
+    modRetirar.modal('hide')
+}
+
+function movimientos(){
+    alert("Se presiono el boton de ver ultimos 20 movimientos")
+    modRetirar.modal('hide')
+}
+
+//eventos de las operaciones
+btDepositar.addEventListener("click",depositar)
+btRetirar.addEventListener("click",retirar)
+btTransferir.addEventListener("click",transferir)
+btBloqDes.addEventListener("click",bloqdes)
+btTiempo.addEventListener("click",recargar)
+btPTarjeta.addEventListener("click",pagarTarjeta)
+btPServicio.addEventListener("click",pagarServicio)
+btVernip.addEventListener("click",verNip)
+btEstado.addEventListener("click",estadoCuenta)
+btMovimientos.addEventListener("click",movimientos)

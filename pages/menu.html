@@ -14,8 +14,8 @@
             <div class="p-3 w-100 d-flex justify-content-between align-items-center border-bottom bg-dark">
                 <div class="font-weight-bolder text-white">
                     <p class="mt-3 mb-0 display-4">Hola, bienvenido</p>
-                    <p class="mt-0 mb-0 text-uppercase">Jose Eduardo Carreon Tula</p>
-                    <p class="mt-0 mb-3 text-uppercase">Cliente: 586891</p>
+                    <p class="mt-0 mb-0 text-uppercase" id="nomCli">Jose Eduardo Carreon Tula</p>
+                    <p class="mt-0 mb-3 text-uppercase" id="infCli">Cliente: 586891</p>
                 </div>
                 <div>
                     <button type="button" class="btn btn-info rounded-pill text-uppercase shadow"><i class="fa-solid fa-right-to-bracket"></i> salir</button>    
@@ -94,42 +94,42 @@
                         </button>
                     </div>
                     <div class="w-200px h-50 p-2">
-                        <button class="w-100 h-100 btn btn-outline-primary rounded-lg text-uppercase p-4 d-flex justify-content-center align-items-center flex-column shadow">
+                        <button class="w-100 h-100 btn btn-outline-primary rounded-lg text-uppercase p-4 d-flex justify-content-center align-items-center flex-column shadow" data-toggle="modal" data-target="#formTran">
                             <i class="fa-solid fa-right-left fa-2x"></i> Transferir
                         </button>
                     </div>
                     <div class="w-200px h-50 p-2">
-                        <button class="w-100 h-100 btn btn-outline-primary rounded-lg text-uppercase p-4 d-flex justify-content-center align-items-center flex-column shadow">
-                            <i class="fa-solid fa-lock fa-2x"></i> Bloquear
+                        <button class="w-100 h-100 btn btn-outline-primary rounded-lg text-uppercase p-4 d-flex justify-content-center align-items-center flex-column shadow" data-toggle="modal" data-target="#formBloq">
+                            <i class="fa-solid fa-lock fa-2x"></i> Bloquear/Desbloquear
                         </button>
                     </div>
                     <div class="w-200px h-50 p-2">
-                        <button class="w-100 h-100 btn btn-outline-primary rounded-lg text-uppercase p-4 d-flex justify-content-center align-items-center flex-column shadow"> 
+                        <button class="w-100 h-100 btn btn-outline-primary rounded-lg text-uppercase p-4 d-flex justify-content-center align-items-center flex-column shadow" data-toggle="modal" data-target="#formTiem"> 
                             <i class="fa-solid fa-comment-sms fa-2x"></i> Tiempo aire
                         </button>
                     </div>
                     <div class="w-200px h-50 p-2">
-                        <button class="w-100 h-100 btn btn-outline-primary rounded-lg text-uppercase p-4 d-flex justify-content-center align-items-center flex-column shadow"> 
-                            <i class="fa-solid fa-money-check-dollar fa-2x"></i> Pagar targeta
+                        <button class="w-100 h-100 btn btn-outline-primary rounded-lg text-uppercase p-4 d-flex justify-content-center align-items-center flex-column shadow" data-toggle="modal" data-target="#formPtar"> 
+                            <i class="fa-solid fa-money-check-dollar fa-2x"></i> Pagar tarjeta
                         </button>
                     </div>
                     <div class="w-200px h-50 p-2">
-                        <button class="w-100 h-100 btn btn-outline-primary rounded-lg text-uppercase p-4 d-flex justify-content-center align-items-center flex-column shadow"> 
+                        <button class="w-100 h-100 btn btn-outline-primary rounded-lg text-uppercase p-4 d-flex justify-content-center align-items-center flex-column shadow" data-toggle="modal" data-target="#formPser"> 
                             <i class="fa-solid fa-file-invoice-dollar fa-2x"></i> Pagar servicios
                         </button>
                     </div>
                     <div class="w-200px h-50 p-2">
-                        <button class="w-100 h-100 btn btn-outline-primary rounded-lg text-uppercase p-4 d-flex justify-content-center align-items-center flex-column shadow"> 
+                        <button class="w-100 h-100 btn btn-outline-primary rounded-lg text-uppercase p-4 d-flex justify-content-center align-items-center flex-column shadow" data-toggle="modal" data-target="#formVnip"> 
                             <i class="fa-solid fa-key fa-2x"></i> Ver nip
                         </button>
                     </div>
                     <div class="w-200px h-50 p-2">
-                        <button class="w-100 h-100 btn btn-outline-primary rounded-lg text-uppercase p-4 d-flex justify-content-center align-items-center flex-column shadow"> 
+                        <button class="w-100 h-100 btn btn-outline-primary rounded-lg text-uppercase p-4 d-flex justify-content-center align-items-center flex-column shadow" data-toggle="modal" data-target="#formEcue"> 
                             <i class="fa-solid fa-file-invoice fa-2x"></i> Estado de cuenta
                         </button>
                     </div>
                     <div class="w-200px h-50 p-2">
-                        <button class="w-100 h-100 btn btn-outline-primary rounded-lg text-uppercase p-4 d-flex justify-content-center align-items-center flex-column shadow"> 
+                        <button class="w-100 h-100 btn btn-outline-primary rounded-lg text-uppercase p-4 d-flex justify-content-center align-items-center flex-column shadow" data-toggle="modal" data-target="#formMovi"> 
                             <i class="fa-solid fa-money-bill-transfer fa-2x"></i> Movimientos
                         </button>
                     </div>
@@ -181,12 +181,12 @@
         </div>
     </div>
 
-    <!-- Modal retirar -->
-    <div class="modal fade" id="formReti" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="formRetiLabel" aria-hidden="true">
+    <!-- Modal transferir -->
+    <div class="modal fade" id="formTran" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="formTranLabel" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-uppercase" id="formRetiLabel">Realizar retiro</h5>
+                <h5 class="modal-title text-uppercase" id="formTranLabel">Hacer una Transferencia</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -196,7 +196,154 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary text-uppercase" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary text-uppercase" id="btReti">Aplicar</button>
+                <button type="button" class="btn btn-primary text-uppercase" id="btTran">Aplicar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Modal bloquear -->
+    <div class="modal fade" id="formBloq" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="formBloqLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-uppercase" id="formBloqLabel">Bloquear tarjeta</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary text-uppercase" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary text-uppercase" id="btBloq">Aplicar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Modal Tiempo Aire -->
+    <div class="modal fade" id="formTiem" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="formTiemLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-uppercase" id="formTiemLabel">Recargar tiempo aire</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary text-uppercase" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary text-uppercase" id="btTiem">Aplicar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Pagar Tarjeta -->
+    <div class="modal fade" id="formPtar" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="formPtarLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-uppercase" id="formPtarLabel">Pagar Tarjeta de credito</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary text-uppercase" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary text-uppercase" id="btPtar">Aplicar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Pagar Servicio -->
+    <div class="modal fade" id="formPser" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="formPserLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-uppercase" id="formPserLabel">Pagar un servicio</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary text-uppercase" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary text-uppercase" id="btPser">Aplicar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Ver nip -->
+    <div class="modal fade" id="formVnip" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="formVnipLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-uppercase" id="formVnipLabel">Mostrar nip de tarjeta</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary text-uppercase" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary text-uppercase" id="btVnip">Aplicar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Estado cuenta -->
+    <div class="modal fade" id="formEcue" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="formEcueLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-uppercase" id="formEcueLabel">Ver estado de cuenta</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary text-uppercase" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary text-uppercase" id="btEcue">Aplicar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Movimientos -->
+    <div class="modal fade" id="formMovi" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="formMoviLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-uppercase" id="formMoviLabel">Ver movimientos del ultimo mes</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary text-uppercase" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary text-uppercase" id="btMovi">Aplicar</button>
             </div>
         </div>
         </div>
