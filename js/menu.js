@@ -1,7 +1,5 @@
 
 //modales
-let modDepositar = $("#formDepo")
-let modRetirar = $("#formReti")
 let modTransferir = $("#formTran")
 let modBloqDes = $("#formBloq")
 let modTiempo = $("#formTiem")
@@ -12,8 +10,6 @@ let modEstado = $("#formEcue")
 let modMovimientos = $("#formMovi") 
 
 //botones de operacion
-let btDepositar = document.querySelector("#btDepo") 
-let btRetirar = document.querySelector("#btReti")
 let btTransferir = document.querySelector("#btTran")
 let btBloqDes = document.querySelector("#btBloq")
 let btTiempo = document.querySelector("#btTiem")
@@ -24,16 +20,6 @@ let btEstado = document.querySelector("#btEcue")
 let btMovimientos = document.querySelector("#btMovi") 
 
 //funciones de las operaciones
-function depositar(){
-    alert("Se presiono el boton de aplicar deposito")
-    modDepositar.modal('hide')
-}
-
-function retirar(){
-    alert("Se presiono el boton de aplicar retirar")
-    modRetirar.modal('hide')
-}
-
 function transferir(){
     alert("Se presiono el boton de transferir")
     modTransferir.modal('hide')
@@ -75,8 +61,6 @@ function movimientos(){
 }
 
 //eventos de las operaciones
-btDepositar.addEventListener("click",depositar)
-btRetirar.addEventListener("click",retirar)
 btTransferir.addEventListener("click",transferir)
 btBloqDes.addEventListener("click",bloqdes)
 btTiempo.addEventListener("click",recargar)

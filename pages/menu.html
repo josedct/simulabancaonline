@@ -84,16 +84,6 @@
                 <p>Operaciones disponibles para: 56985612</p>
                 <div class="h-300px d-flex flex-wrap overflow-auto">
                     <div class="w-200px h-50 p-2">
-                        <button class="w-100 h-100 btn btn-outline-primary rounded-lg text-uppercase p-4 d-flex justify-content-center align-items-center flex-column shadow" data-toggle="modal" data-target="#formDepo"> 
-                            <i class="fa-solid fa-angles-up fa-2x"></i> Depositar
-                        </button>
-                    </div>
-                    <div class="w-200px h-50 p-2">
-                        <button class="w-100 h-100 btn btn-outline-primary rounded-lg text-uppercase p-4 d-flex justify-content-center align-items-center flex-column shadow" data-toggle="modal" data-target="#formReti">
-                            <i class="fa-solid fa-angles-down fa-2x"></i> Retirar
-                        </button>
-                    </div>
-                    <div class="w-200px h-50 p-2">
                         <button class="w-100 h-100 btn btn-outline-primary rounded-lg text-uppercase p-4 d-flex justify-content-center align-items-center flex-column shadow" data-toggle="modal" data-target="#formTran">
                             <i class="fa-solid fa-right-left fa-2x"></i> Transferir
                         </button>
@@ -139,52 +129,6 @@
     </section>
 
     <!-- Modales para las diferentes opciones -->
-    <!-- Modal depositar -->
-    <div class="modal fade" id="formDepo" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="formDepoLabel" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-uppercase" id="formDepoLabel">Realizar deposito</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body d-flex justify-content-center align-items-center flex-column">
-                <h4 class="">Deposito a:</h4>
-                <p class="mt-0 mb-2">ID: <span id="">125685</span></p>
-                <input class="text-uppercase text-center" type="text" name="" id="txtDeposito" placeholder="Cantidad">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary text-uppercase" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary text-uppercase" id="btDepo">Aplicar</button>
-            </div>
-        </div>
-        </div>
-    </div>
-
-    <!-- Modal retirar -->
-    <div class="modal fade" id="formReti" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="formRetiLabel" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-uppercase" id="formRetiLabel">Realizar retiro</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body d-flex justify-content-center align-items-center flex-column">
-                <h4 class="">Retiro de:</h4>
-                <p class="mt-0 mb-2">ID: <span id="">125685</span></p>
-                <input class="text-uppercase text-center" type="text" name="" id="txtRetiro" placeholder="Cantidad">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary text-uppercase" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary text-uppercase" id="btReti">Aplicar</button>
-            </div>
-        </div>
-        </div>
-    </div>
-
     <!-- Modal transferir -->
     <div class="modal fade" id="formTran" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="formTranLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -296,7 +240,7 @@
                     <option value="2578963">2578963</option>
                 </select>
 
-                <input class="text-uppercase text-center" type="text" name="" id="txtTCreditoPago" placeholder="Cantidad">
+                <input class="text-uppercase text-center" type="text" name="" id="txtTCreditoPago" placeholder="Cantidad">  
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary text-uppercase" data-dismiss="modal">Cancelar</button>
@@ -316,8 +260,13 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-            ...
+            <div class="modal-body d-flex justify-content-center align-items-center flex-column">
+                <h4 class="">Pagar de ID:</h4>
+                <input class="text-uppercase text-center" type="text" name="" id="txtOrigen" disabled value="125568">
+
+                <h4 class="">Servicio con:</h4>
+                <input class="text-uppercase text-center" type="text" name="" id="txtReferencia" placeholder="Referencia">  
+                <input class="text-uppercase text-center" type="text" name="" id="txtReferrenciaPago" placeholder="Cantidad">  
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary text-uppercase" data-dismiss="modal">Cancelar</button>
@@ -337,8 +286,10 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-            ...
+            <div class="modal-body d-flex justify-content-center align-items-center flex-column">
+                <h4 class="">Nip de ID:</h4>
+                <input class="text-uppercase text-center" type="text" name="" id="txtOrigen" disabled value="125568">
+                <h4><span id="lbNip">2269</span></h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary text-uppercase" data-dismiss="modal">Cancelar</button>
