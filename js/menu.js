@@ -75,7 +75,11 @@ btEstado.addEventListener("click",estadoCuenta)
 btMovimientos.addEventListener("click",movimientos)
 
 //cargar json
-fetch('../json/datos.json')
+fetch('../json/datos.json',{
+    method:"POST",
+    headers:{"Content-type":"application/json"},
+    body:JSON.stringify(info)
+})
 .then((response) => response.json())
 .then((datos) => {
     datos.Clientes.forEach(element => {
