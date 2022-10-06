@@ -1,4 +1,8 @@
 
+//Arreglo de Clientes
+
+const Clientes = []
+
 //modales
 let modTransferir = $("#formTran")
 let modBloqDes = $("#formBloq")
@@ -69,3 +73,15 @@ btPServicio.addEventListener("click",pagarServicio)
 btVernip.addEventListener("click",verNip)
 btEstado.addEventListener("click",estadoCuenta)
 btMovimientos.addEventListener("click",movimientos)
+
+//cargar json
+fetch('../json/datos.json')
+.then((response) => response.json())
+.then((datos) => {
+    datos.Clientes.forEach(element => {
+        console.log("entra")
+        //console.log(element)
+        //Clientes.push(new Cliente(element.nomCom,element.numCli,element.fechNac,element.direccion,element.dni,element.nipCli))
+        //console.log(Clientes)
+    });
+})

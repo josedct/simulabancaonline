@@ -1,0 +1,42 @@
+{
+"Clientes":[
+ {"nomCom": "Olympia Pierce","numCli": 25672,"fechNac": "03\/27\/1994","direccion": "Ap #154-9998 Ac Street","dni": 136181988,"nipCli": 5321},
+ {"nomCom": "Zenia Gomez","numCli": 26124,"fechNac": "01\/15\/1986","direccion": "3220 Eu Rd.","dni": 258542776,"nipCli": 4866},
+ {"nomCom": "Galvin Burton","numCli": 43367,"fechNac": "03\/19\/1992","direccion": "P.O. Box 476, 2977 Dolor Ave","dni": 187220292,"nipCli": 5328},
+ {"nomCom": "Paul Morales","numCli": 56819,"fechNac": "09\/26\/1987","direccion": "Ap #631-6180 Sit Rd.","dni": 197653303,"nipCli": 4986},
+ {"nomCom": "Wayne Hampton","numCli": 64668,"fechNac": "07\/02\/1990","direccion": "4690 Convallis Street","dni": 189369003,"nipCli": 5024},
+ {"nomCom": "Desiree Blackburn","numCli": 67302,"fechNac": "04\/03\/1987","direccion": "Ap #705-7770 Ante Av.","dni": 132443659,"nipCli": 5042}
+],
+"Cuentas":[
+ {"numCli": 25672,"numCue": 725487,"numTar": 45473558,"clabe": 775263928,"saldo": 24570.84},
+ {"numCli": 25672,"numCue": 375748,"numTar": 45482687,"clabe": 726547674,"saldo": 17493.61},
+ {"numCli": 26124,"numCue": 511927,"numTar": 45344596,"clabe": 252354753,"saldo": 22154.54},
+ {"numCli": 26124,"numCue": 418578,"numTar": 45855877,"clabe": 367888213,"saldo": 15737.28},
+ {"numCli": 43367,"numCue": 552432,"numTar": 45522594,"clabe": 682974147,"saldo": 12261.26},
+ {"numCli": 56819,"numCue": 655394,"numTar": 45339763,"clabe": 546772737,"saldo": 20300.36},
+ {"numCli": 56819,"numCue": 422346,"numTar": 45834745,"clabe": 742676487,"saldo": 10810.75},
+ {"numCli": 64668,"numCue": 639635,"numTar": 45162858,"clabe": 236812254,"saldo": 15742.29},
+ {"numCli": 64668,"numCue": 323328,"numTar": 45568346,"clabe": 344799789,"saldo": 16011.47},
+ {"numCli": 67302,"numCue": 487887,"numTar": 45416847,"clabe": 783256731,"saldo": 16640.66}
+],
+"TarsDebito":[
+ {"numCli": 25672,"numCue": 725487,"numTar": 45473558,"fechVen": "05\/31\/2026","nipTar": 5021,"estado": "activa"},
+ {"numCli": 25672,"numCue": 375748,"numTar": 45482687,"fechVen": "06\/07\/2025","nipTar": 1393,"estado": "activa"},
+ {"numCli": 26124,"numCue": 511927,"numTar": 45344596,"fechVen": "07\/24\/2025","nipTar": 8047,"estado": "activa"},
+ {"numCli": 26124,"numCue": 418578,"numTar": 45855877,"fechVen": "09\/24\/2025","nipTar": 3819,"estado": "activa"},
+ {"numCli": 43367,"numCue": 552432,"numTar": 45522594,"fechVen": "06\/07\/2026","nipTar": 2267,"estado": "activa"},
+ {"numCli": 56819,"numCue": 655394,"numTar": 45339763,"fechVen": "03\/15\/2026","nipTar": 6738,"estado": "activa"},
+ {"numCli": 56819,"numCue": 422346,"numTar": 45834745,"fechVen": "06\/06\/2026","nipTar": 2658,"estado": "activa"},
+ {"numCli": 64668,"numCue": 639635,"numTar": 45162858,"fechVen": "05\/09\/2026","nipTar": 1923,"estado": "activa"},
+ {"numCli": 64668,"numCue": 323328,"numTar": 45568346,"fechVen": "03\/01\/2026","nipTar": 7637,"estado": "activa"},
+ {"numCli": 67302,"numCue": 487887,"numTar": 45416847,"fechVen": "06\/22\/2025","nipTar": 5086,"estado": "activa"}
+],
+"TarsCredito":[
+ {"numCli": 25672,"numTar": 86773855,"fechVen": "11\/28\/2024","nipTar": 3665,"estado": "activa","linCre": 45157.77,"salPen": 9485.98},
+ {"numCli": 26124,"numTar": 86468722,"fechVen": "05\/14\/2026","nipTar": 8079,"estado": "activa","linCre": 31551.73,"salPen": 8771.51},
+ {"numCli": 43367,"numTar": 86815898,"fechVen": "07\/06\/2025","nipTar": 6096,"estado": "activa","linCre": 44205.93,"salPen": 6094.82},
+ {"numCli": 56819,"numTar": 86414284,"fechVen": "03\/27\/2025","nipTar": 8471,"estado": "activa","linCre": 33640.07,"salPen": 10471.12},
+ {"numCli": 64668,"numTar": 86349542,"fechVen": "12\/20\/2025","nipTar": 9704,"estado": "activa","linCre": 47664.92,"salPen": 10674.67},
+ {"numCli": 67302,"numTar": 86581992,"fechVen": "03\/20\/2025","nipTar": 9872,"estado": "activa","linCre": 42648.18,"salPen": 7611.8}
+]
+}
