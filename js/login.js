@@ -6,7 +6,7 @@ let form = document.querySelector("#ingresar")
 form.addEventListener("submit",obtenerNip)
 
 //cargar json
-fetch('/../json/datos.json')
+fetch('../../json/datos.json')
 .then((response) => response.json())
 .then((datos) =>{
     datos.Clientes.forEach(element => {
