@@ -23,8 +23,11 @@ function opSalir(){
 }
 
 
-//Arreglo de Clientes
+//Arreglos de base de datos de json
 const Clientes = []
+const Cuentas = []
+const TsDebito = []
+const TsCredito = []
 
 //modales
 let modTransferir = $("#formTran")
@@ -103,10 +106,12 @@ btMovimientos.addEventListener("click",movimientos)
 fetch('./../json/datos.json')
 .then((response) => response.json())
 .then((datos) => {
-    datos.Clientes.forEach(element => {
-        console.log("entra")
-        //console.log(element)
-        //Clientes.push(new Cliente(element.nomCom,element.numCli,element.fechNac,element.direccion,element.dni,element.nipCli))
-        //console.log(Clientes)
-    });
+    datos.Clientes.forEach(element => {Clientes.push(new Cliente(element.nomCom,element.numCli,element.fechNac,element.direccion,element.dni,element.nipCli))})
+    datos.Cuentas.forEach(element => {Cuentas.push(new Cuenta(element.numCli,element.numCue,element.numTar,element.clabe,element.saldo))})
+    datos.TarsDebito.forEach(element => {TsDebito.push(new TarjetaDebito(element.numCli,element.numCue,element.numTar,element.fechVen,element.nipTar,element.estado))})
+    datos.TarsCredito.forEach(element => {TsCredito.push(new TarjetaCredito(element.numCli,element.numTar,element.fechVen,element.nipTar,element.estado,element.linCre,element.salPen))})
+    console.log(Clientes)
+    console.log(Cuentas)
+    console.log(TsDebito)
+    console.log(TsCredito)
 })
