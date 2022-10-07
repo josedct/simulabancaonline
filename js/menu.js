@@ -1,6 +1,29 @@
 
-//Arreglo de Clientes
+//encabezado de aplicacion
+let nom = document.querySelector("#nomCli")
+let cli = document.querySelector("#infCli")
 
+//cambiar encabezado al cargar la pagina
+window.addEventListener("load",cargarDatosUsuario)
+
+function cargarDatosUsuario(){
+    nom.innerHTML = sessionStorage.getItem("Nombre")
+    console.log(sessionStorage.getItem("Nombre"))
+    cli.innerHTML = sessionStorage.getItem("NumCliente")
+}
+
+//Codigo para salir
+let btSalir = document.querySelector("#btExit")
+
+btSalir.addEventListener("click",opSalir)
+
+function opSalir(){
+    sessionStorage.clear()
+    location.href="../index.html"
+}
+
+
+//Arreglo de Clientes
 const Clientes = []
 
 //modales
@@ -74,12 +97,10 @@ btVernip.addEventListener("click",verNip)
 btEstado.addEventListener("click",estadoCuenta)
 btMovimientos.addEventListener("click",movimientos)
 
+
+
 //cargar json
-fetch('../json/datos.json',{
-    method:"POST",
-    headers:{"Content-type":"application/json"},
-    body:JSON.stringify(info)
-})
+fetch('./../json/datos.json')
 .then((response) => response.json())
 .then((datos) => {
     datos.Clientes.forEach(element => {

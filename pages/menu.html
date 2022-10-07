@@ -8,73 +8,73 @@
     <link rel="stylesheet" href="../css/estilo.css">
     <title>Simulador de cajero</title>
 </head>
-<body class="container-fluid mt-5 d-flex justify-content-center align-items-center">
-    <section class="container w-75 p-4 bg-info">
+<body class="container-fluid p-0 vh-100 d-flex justify-content-center align-items-center">
+    <section class="container-fluid h-100 w-100 p-4 bg-info">
         <div class="container w-100 p-2 bg-light shadow-sm d-flex flex-column">
-            <div class="p-3 w-100 d-flex justify-content-between align-items-center border-bottom bg-dark">
-                <div class="font-weight-bolder text-white">
+            <div class="p-3 w-100 d-flex justify-content-between align-items-center border-bottom bg-secondary">
+                <div class="font-weight-bolder">
                     <p class="mt-3 mb-0 display-4">Hola, bienvenido</p>
                     <p class="mt-0 mb-0 text-uppercase" id="nomCli">Jose Eduardo Carreon Tula</p>
                     <p class="mt-0 mb-3 text-uppercase" id="infCli">Cliente: 586891</p>
                 </div>
                 <div>
-                    <button type="button" class="btn btn-info rounded-pill text-uppercase shadow"><i class="fa-solid fa-right-to-bracket"></i> salir</button>    
+                    <button id="btExit" type="button" class="btn btn-info rounded-pill text-uppercase shadow"><i class="fa-solid fa-right-to-bracket"></i> salir</button>    
                 </div>
             </div>
             <div class="text-uppercase font-weight-bolder p-2 w-100 d-flex flex-column">
                 <p>Seleccione una cuenta o tarjeta</p>
                 <div class="h-300px pb-2 border-bottom d-flex flex-wrap overflow-auto">
-                    <div class="m-3 w-200px float-left">
+                    <div class="m-2 w-200px float-left">
                         <button class="w-100 btn btn-primary d-flex flex-column align-items-center rounded-lg shadow">
                             <i class="fa-regular fa-credit-card fa-4x"></i>
                             <p class="m-0 p-0"> T. <span class="tipoId">Credito</span>: <span class="numId">56985612</span> </p>
                             <p class="m-0 p-0"> Saldo: <span class="saldoId">100225</span> </p>
                         </button>
                     </div>
-                    <div class="m-3 w-200px float-left">
-                        <button class="w-100 btn btn-info d-flex flex-column align-items-center rounded-lg shadow">
+                    <div class="m-2 w-200px float-left">
+                        <button class="w-100 btn btn-secondary d-flex flex-column align-items-center rounded-lg shadow">
                             <i class="fa-regular fa-credit-card fa-4x"></i>
                             <p class="m-0 p-0"> T. <span class="tipoId">Debito</span>: <span class="numId">12548795</span> </p>
                             <p class="m-0 p-0"> Saldo: <span class="saldoId">100225</span> </p>
                         </button>
                     </div>
-                    <div class="m-3 w-200px float-left">
-                        <button class="w-100 btn btn-info d-flex flex-column align-items-center rounded-lg shadow">
+                    <div class="m-2 w-200px float-left">
+                        <button class="w-100 btn btn-secondary d-flex flex-column align-items-center rounded-lg shadow">
                             <i class="fa-solid fa-address-card fa-4x"></i>
                             <p class="m-0 p-0"> Nº <span class="tipoId">Cuenta</span>: <span class="numId">258969</span> </p>
                             <p class="m-0 p-0"> Saldo: <span class="saldoId">100225</span> </p>
                         </button>
                     </div>
-                    <div class="m-3 w-200px float-left">
-                        <button class="w-100 btn btn-info d-flex flex-column align-items-center rounded-lg shadow">
+                    <div class="m-2 w-200px float-left">
+                        <button class="w-100 btn btn-secondary d-flex flex-column align-items-center rounded-lg shadow">
                             <i class="fa-solid fa-address-card fa-4x"></i>
                             <p class="m-0 p-0"> Nº <span class="tipoId">Cuenta</span>: <span class="numId">258974</span> </p>
                             <p class="m-0 p-0"> Saldo: <span class="saldoId">100225</span> </p>
                         </button>    
                     </div>
-                    <div class="m-3 w-200px float-left">
-                        <button class="w-100 btn btn-info d-flex flex-column align-items-center rounded-lg shadow">
+                    <div class="m-2 w-200px float-left">
+                        <button class="w-100 btn btn-secondary d-flex flex-column align-items-center rounded-lg shadow">
                             <i class="fa-regular fa-credit-card fa-4x"></i>
                             <p class="m-0 p-0"> T. <span class="tipoId">Credito</span>: <span class="numId">56985612</span> </p>
                             <p class="m-0 p-0"> Saldo: <span class="saldoId">100225</span> </p>
                         </button>
                     </div>
-                    <div class="m-3 w-200px float-left">
-                        <button class="w-100 btn btn-info d-flex flex-column align-items-center rounded-lg shadow">
+                    <div class="m-2 w-200px float-left">
+                        <button class="w-100 btn btn-secondary d-flex flex-column align-items-center rounded-lg shadow">
                             <i class="fa-regular fa-credit-card fa-4x"></i>
                             <p class="m-0 p-0"> T. <span class="tipoId">Credito</span>: <span class="numId">12548795</span> </p>
                             <p class="m-0 p-0"> Saldo: <span class="saldoId">100225</span> </p>
                         </button>
                     </div>
-                    <div class="m-3 w-200px float-left">
-                        <button class="w-100 btn btn-info d-flex flex-column align-items-center rounded-lg shadow">
+                    <div class="m-2 w-200px float-left">
+                        <button class="w-100 btn btn-secondary d-flex flex-column align-items-center rounded-lg shadow">
                             <i class="fa-solid fa-address-card fa-4x"></i>
                             <p class="m-0 p-0"> Nº <span class="tipoId">Cuenta</span>: <span class="numId">258969</span> </p>
                             <p class="m-0 p-0"> Saldo: <span class="saldoId">100225</span> </p>
                         </button>
                     </div>
-                    <div class="m-3 w-200px float-left">
-                        <button class="w-100 btn btn-info d-flex flex-column align-items-center rounded-lg shadow">
+                    <div class="m-2 w-200px float-left">
+                        <button class="w-100 btn btn-secondary d-flex flex-column align-items-center rounded-lg shadow">
                             <i class="fa-solid fa-address-card fa-4x"></i>
                             <p class="m-0 p-0"> Nº <span class="tipoId">Cuenta</span>: <span class="numId">258974</span> </p>
                             <p class="m-0 p-0"> Saldo: <span class="saldoId">100225</span> </p>
@@ -90,7 +90,7 @@
                     </div>
                     <div class="w-200px h-50 p-2">
                         <button class="w-100 h-100 btn btn-outline-primary rounded-lg text-uppercase p-4 d-flex justify-content-center align-items-center flex-column shadow" data-toggle="modal" data-target="#formBloq">
-                            <i class="fa-solid fa-lock fa-2x"></i> Bloquear/Desbloquear
+                            <i class="fa-solid fa-lock fa-2x"></i> Bloquear o Desbloquear
                         </button>
                     </div>
                     <div class="w-200px h-50 p-2">
@@ -339,11 +339,6 @@
             </div>
         </div>
         </div>
-    </div>
-
-    <div id="contJson">
-        <h1>Contenido de archivo json</h1>
-
     </div>
 
     <script src="https://kit.fontawesome.com/275eaa4c57.js" crossorigin="anonymous"></script>

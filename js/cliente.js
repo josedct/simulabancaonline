@@ -16,7 +16,7 @@ class Cliente{
         return this.numCli
     }
 
-    verFechNAc(){
+    verFechNac(){
         return this.fechNac
     }
 
