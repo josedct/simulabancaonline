@@ -3,15 +3,6 @@
 let nom = document.querySelector("#nomCli")
 let cli = document.querySelector("#infCli")
 
-//cambiar encabezado al cargar la pagina
-window.addEventListener("load",cargarDatosUsuario)
-
-function cargarDatosUsuario(){
-    nom.innerHTML = sessionStorage.getItem("Nombre")
-    console.log(sessionStorage.getItem("Nombre"))
-    cli.innerHTML = sessionStorage.getItem("NumCliente")
-}
-
 //Codigo para salir
 let btSalir = document.querySelector("#btExit")
 
@@ -20,6 +11,22 @@ btSalir.addEventListener("click",opSalir)
 function opSalir(){
     sessionStorage.clear()
     location.href="../index.html"
+}
+
+//funciones para buscar cuentas y tarjetas
+function buscarCuentasCliente(ncli){
+    console.log(Cuentas)
+    return Cuentas.filter(Cuenta => Cuenta.numCli == ncli)
+}
+
+function buscarTsDebitoCliente(ncli){
+    console.log(TsDebito)
+    return TsDebito.filter(Debito => Debito.numCli == ncli)
+}
+
+function buscarTsCreditoCliente(ncli){
+    console.log(TsCredito)
+    return TsCredito.filter(Credito => Credito.numCli == ncli)
 }
 
 
@@ -103,15 +110,33 @@ btMovimientos.addEventListener("click",movimientos)
 
 
 //cargar json
-fetch('./../json/datos.json')
-.then((response) => response.json())
-.then((datos) => {
-    datos.Clientes.forEach(element => {Clientes.push(new Cliente(element.nomCom,element.numCli,element.fechNac,element.direccion,element.dni,element.nipCli))})
-    datos.Cuentas.forEach(element => {Cuentas.push(new Cuenta(element.numCli,element.numCue,element.numTar,element.clabe,element.saldo))})
-    datos.TarsDebito.forEach(element => {TsDebito.push(new TarjetaDebito(element.numCli,element.numCue,element.numTar,element.fechVen,element.nipTar,element.estado))})
-    datos.TarsCredito.forEach(element => {TsCredito.push(new TarjetaCredito(element.numCli,element.numTar,element.fechVen,element.nipTar,element.estado,element.linCre,element.salPen))})
-    console.log(Clientes)
-    console.log(Cuentas)
-    console.log(TsDebito)
-    console.log(TsCredito)
-})
+async function cargarJson(){
+    const response = await fetch('./../json/datos.json')
+    const datos = await response.json()
+        datos.Clientes.forEach(element => {Clientes.push(new Cliente(element.nomCom,element.numCli,element.fechNac,element.direccion,element.dni,element.nipCli))})
+        datos.Cuentas.forEach(element => {Cuentas.push(new Cuenta(element.numCli,element.numCue,element.numTar,element.clabe,element.saldo))})
+        datos.TarsDebito.forEach(element => {TsDebito.push(new TarjetaDebito(element.numCli,element.numCue,element.numTar,element.fechVen,element.nipTar,element.estado))})
+        datos.TarsCredito.forEach(element => {TsCredito.push(new TarjetaCredito(element.numCli,element.numTar,element.fechVen,element.nipTar,element.estado,element.linCre,element.salPen))})
+        console.log(Clientes)
+        console.log(Cuentas)
+        console.log(TsDebito)
+        console.log(TsCredito)
+}
+
+//cambiar encabezado al cargar la pagina
+window.addEventListener("load",cargarDatosUsuario)
+
+const cuentasUs = []
+const debitoUs = []
+const creditoUs = []
+
+async function cargarDatosUsuario(){
+    await cargarJson()
+    nom.innerHTML = "Usuario: " + sessionStorage.getItem("Nombre")
+    cli.innerHTML = "Cliente: " + sessionStorage.getItem("NumCliente")
+    buscarCuentasCliente(sessionStorage.getItem("NumCliente")).forEach(Ccli => {cuentasUs.push(Ccli)})
+    buscarTsDebitoCliente(sessionStorage.getItem("NumCliente")).forEach(Tdcli => {cuentasUs.push(Tdcli)})
+    buscarTsCreditoCliente(sessionStorage.getItem("NumCliente")).forEach(Tccli => {cuentasUs.push(Tccli)})
+}
+
+console.log(cuentasUs)

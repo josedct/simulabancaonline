@@ -1,6 +1,7 @@
-let valor
-
-let Clientes = []
+const Clientes = []
+const Cuentas = []
+const TsDebito = []
+const TsCredito = []
 
 let form = document.querySelector("#ingresar")
 form.addEventListener("submit",obtenerNip)
@@ -9,9 +10,10 @@ form.addEventListener("submit",obtenerNip)
 fetch('./json/datos.json')
 .then((response) => response.json())
 .then((datos) =>{
-    datos.Clientes.forEach(element => {
-        Clientes.push(new Cliente(element.nomCom,element.numCli,element.fechNac,element.direccion,element.dni,element.nipCli))
-    })
+    datos.Clientes.forEach(element => {Clientes.push(new Cliente(element.nomCom,element.numCli,element.fechNac,element.direccion,element.dni,element.nipCli))})
+    datos.Cuentas.forEach(element => {Cuentas.push(new Cuenta(element.numCli,element.numCue,element.numTar,element.clabe,element.saldo))})
+    datos.TarsDebito.forEach(element => {TsDebito.push(new TarjetaDebito(element.numCli,element.numCue,element.numTar,element.fechVen,element.nipTar,element.estado))})
+    datos.TarsCredito.forEach(element => {TsCredito.push(new TarjetaCredito(element.numCli,element.numTar,element.fechVen,element.nipTar,element.estado,element.linCre,element.salPen))})
 })
 
 function buscarNipCliente(nip){
@@ -33,16 +35,22 @@ function obtenerNip(e){
         sessionStorage.setItem("Nip",Clientes[indiceCliente].verNipCliente())
         location.href="pages/menu.html"
     } else {
-        Toastify({
-            text: "Nip incorrecto intente con otro",
-            duration: 3000,
-            style: {
-                background: "linear-gradient(to top, #66ffff -20%, #ffffff 100%)",
-                color: "#3333ff",
-                border: "1px solid #3333ff",
-                "border-radius": "10px",
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'center',
+            showConfirmButton: false,
+            timer: 10000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
-        }).showToast();
+          })
+
+        Toast.fire({
+            icon: 'error',
+            title: 'Oops... Nip Incorrecto'
+        })
         txtnip.value=""
     }
 }
