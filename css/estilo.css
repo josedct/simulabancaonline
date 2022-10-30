@@ -1,4 +1,8 @@
-.saldoId::before{
+#logo{
+    width: 3.5rem;
+}
+
+.saldoId::before, #txtTranSaldo::before, #txtRecarSaldo::before, #txtPagarTSaldo::before, #txtPagarSalPend::before{
     content: '$'!important;
 }
 
@@ -7,5 +11,5 @@
 }
 
 .w-200px{
-    width: 200px!important;
+    width: 270px!important;
 }

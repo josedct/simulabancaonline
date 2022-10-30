@@ -1,40 +1,36 @@
 
-//encabezado de aplicacion
-let nom = document.querySelector("#nomCli")
-let cli = document.querySelector("#infCli")
-
 //Codigo para salir
 let btSalir = document.querySelector("#btExit")
 
 btSalir.addEventListener("click",opSalir)
 
+//alerta o notificacion
+const notificacion = Swal.mixin({
+    toast: false,
+    position: 'center',
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true,
+    allowOutsideClick: false,
+    heightAuto: false,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+
+function alerta(icono, texto){
+    notificacion.fire({
+        icon: icono,
+        title: texto
+    })
+}
+
+
 function opSalir(){
     sessionStorage.clear()
     location.href="../index.html"
 }
-
-//funciones para buscar cuentas y tarjetas
-function buscarCuentasCliente(ncli){
-    console.log(Cuentas)
-    return Cuentas.filter(Cuenta => Cuenta.numCli == ncli)
-}
-
-function buscarTsDebitoCliente(ncli){
-    console.log(TsDebito)
-    return TsDebito.filter(Debito => Debito.numCli == ncli)
-}
-
-function buscarTsCreditoCliente(ncli){
-    console.log(TsCredito)
-    return TsCredito.filter(Credito => Credito.numCli == ncli)
-}
-
-
-//Arreglos de base de datos de json
-const Clientes = []
-const Cuentas = []
-const TsDebito = []
-const TsCredito = []
 
 //modales
 let modTransferir = $("#formTran")
@@ -56,9 +52,21 @@ let btVernip = document.querySelector("#btVnip")
 let btEstado = document.querySelector("#btEcue")
 let btMovimientos = document.querySelector("#btMovi") 
 
+//inputs que se utilizan en los formularios
+let dtTransDes = document.querySelector("#txtTranDestino")
+let dtTransCan = document.querySelector("#txtTranCantidad")
+
 //funciones de las operaciones
 function transferir(){
-    alert("Se presiono el boton de transferir")
+    //obtener datos para la transferencia
+    
+    //realizar la transferencia
+
+    //actualizar el arreglo de datos
+
+    //actualizar el html de las tarjetas y cuentas
+
+    //notificar del cambio o error
     modTransferir.modal('hide')
 }
 
@@ -106,37 +114,3 @@ btPServicio.addEventListener("click",pagarServicio)
 btVernip.addEventListener("click",verNip)
 btEstado.addEventListener("click",estadoCuenta)
 btMovimientos.addEventListener("click",movimientos)
-
-
-
-//cargar json
-async function cargarJson(){
-    const response = await fetch('./../json/datos.json')
-    const datos = await response.json()
-        datos.Clientes.forEach(element => {Clientes.push(new Cliente(element.nomCom,element.numCli,element.fechNac,element.direccion,element.dni,element.nipCli))})
-        datos.Cuentas.forEach(element => {Cuentas.push(new Cuenta(element.numCli,element.numCue,element.numTar,element.clabe,element.saldo))})
-        datos.TarsDebito.forEach(element => {TsDebito.push(new TarjetaDebito(element.numCli,element.numCue,element.numTar,element.fechVen,element.nipTar,element.estado))})
-        datos.TarsCredito.forEach(element => {TsCredito.push(new TarjetaCredito(element.numCli,element.numTar,element.fechVen,element.nipTar,element.estado,element.linCre,element.salPen))})
-        console.log(Clientes)
-        console.log(Cuentas)
-        console.log(TsDebito)
-        console.log(TsCredito)
-}
-
-//cambiar encabezado al cargar la pagina
-window.addEventListener("load",cargarDatosUsuario)
-
-const cuentasUs = []
-const debitoUs = []
-const creditoUs = []
-
-async function cargarDatosUsuario(){
-    await cargarJson()
-    nom.innerHTML = "Usuario: " + sessionStorage.getItem("Nombre")
-    cli.innerHTML = "Cliente: " + sessionStorage.getItem("NumCliente")
-    buscarCuentasCliente(sessionStorage.getItem("NumCliente")).forEach(Ccli => {cuentasUs.push(Ccli)})
-    buscarTsDebitoCliente(sessionStorage.getItem("NumCliente")).forEach(Tdcli => {cuentasUs.push(Tdcli)})
-    buscarTsCreditoCliente(sessionStorage.getItem("NumCliente")).forEach(Tccli => {cuentasUs.push(Tccli)})
-}
-
-console.log(cuentasUs)

@@ -1,53 +1,42 @@
-const Clientes = []
-const Cuentas = []
-const TsDebito = []
-const TsCredito = []
-
+// se selecciona el formulario de login
 let form = document.querySelector("#ingresar")
-form.addEventListener("submit",obtenerNip)
 
-//cargar json
-fetch('./json/datos.json')
-.then((response) => response.json())
-.then((datos) =>{
-    datos.Clientes.forEach(element => {Clientes.push(new Cliente(element.nomCom,element.numCli,element.fechNac,element.direccion,element.dni,element.nipCli))})
-    datos.Cuentas.forEach(element => {Cuentas.push(new Cuenta(element.numCli,element.numCue,element.numTar,element.clabe,element.saldo))})
-    datos.TarsDebito.forEach(element => {TsDebito.push(new TarjetaDebito(element.numCli,element.numCue,element.numTar,element.fechVen,element.nipTar,element.estado))})
-    datos.TarsCredito.forEach(element => {TsCredito.push(new TarjetaCredito(element.numCli,element.numTar,element.fechVen,element.nipTar,element.estado,element.linCre,element.salPen))})
-})
-
-function buscarNipCliente(nip){
-    return Clientes.findIndex(Cliente => Cliente.nipCli == nip)
-}
-
+// se selecciona el input donde se ingresa el nip
 let txtnip=document.querySelector("#nip")
 
-function obtenerNip(e){
+//funcion que busca un nip dado en todos los clientes
+function buscarNipCliente(nip){
+    return datosCliente.findIndex(Cliente => Cliente.nipCli == nip)
+}
+
+//funcion que verifica si existe un nip correcto o no
+function verificarNip(e){
     e.preventDefault()
     let nip =txtnip.value
     let indiceCliente = buscarNipCliente(nip)
     if (indiceCliente>=0) {
-        sessionStorage.setItem("Nombre",Clientes[indiceCliente].verNombre())
-        sessionStorage.setItem("NumCliente",Clientes[indiceCliente].verNumCliente())
-        sessionStorage.setItem("FechNac",Clientes[indiceCliente].verFechNac())
-        sessionStorage.setItem("Direccion",Clientes[indiceCliente].verDireccion())
-        sessionStorage.setItem("Dni",Clientes[indiceCliente].verDni())
-        sessionStorage.setItem("Nip",Clientes[indiceCliente].verNipCliente())
+        //Si se encuentra el nip, se carga la informacion del cliente que inicio la sesion en el sessionStorage y se carga la pagina con las opciones permitidas para el usuario
+        sessionStorage.setItem("nombre",datosCliente[indiceCliente].verNombre())
+        sessionStorage.setItem("numCliente",datosCliente[indiceCliente].verNumCliente())
+        sessionStorage.setItem("index",indiceCliente)
         location.href="pages/menu.html"
     } else {
-        const Toast = Swal.mixin({
-            toast: true,
+        //En caso de no encontrar el nip se manda un mensaje de error, se limpia el input y se mantiene la misma pagina
+        const notificacion = Swal.mixin({
+            toast: false,
             position: 'center',
             showConfirmButton: false,
-            timer: 10000,
+            timer: 2000,
             timerProgressBar: true,
+            allowOutsideClick: false,
+            heightAuto: false,
             didOpen: (toast) => {
               toast.addEventListener('mouseenter', Swal.stopTimer)
               toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
           })
 
-        Toast.fire({
+        notificacion.fire({
             icon: 'error',
             title: 'Oops... Nip Incorrecto'
         })
@@ -55,4 +44,6 @@ function obtenerNip(e){
     }
 }
 
+//agregamos la funcion al formulario para atrapar el evento submit y verificar el nip
+form.addEventListener("submit",verificarNip)
 
