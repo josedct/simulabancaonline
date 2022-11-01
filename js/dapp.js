@@ -58,10 +58,7 @@ function mostrarListaCreditos(){
         sllc.append(opt)
     })
     dtPagaSSel.textContent="0.00"
-    console.log("cambia creditos")
 }
-
-
 
 //inputs que se actualizan al seleccionar tarjeta o cuenta al dar clic
 let dtTransOri = document.querySelector("#txtTranOrigen") 
@@ -102,14 +99,102 @@ function muestraSalPend(){
     dtPagaSSel.textContent = datosApp.TsCredito[index].verSalPendiente()
 }
 
+//mostrar receptor al escribir una cuenta,tarjeta o clabe y perder el foco
+let dtTransDes = document.querySelector("#txtTranDestino")
+let dtTransRec = document.querySelector("#txtTranReceptor")
 
+dtTransDes.addEventListener('blur',muestraReceptor)
+
+function muestraReceptor(){
+    let nombreRec = buscarNombreReceptor(dtTransDes.value)
+    dtTransRec.value = nombreRec
+}
+
+//mostrar los movimientos
+btmo.addEventListener("click",listarMovi)
+
+function listarMovi(){
+    let origen = idTCActual
+    let tipo = tipTCActual
+    let index
+    let contenido = ""
+    let divmovi = document.querySelector("#listMov")
+    divmovi.innerHTML=""
+    switch (tipo) {
+        case "Cuenta":
+            index = datosApp.Cuentas.findIndex(cue => cue.numCue == origen)
+            contenido = "<h4>Cuenta: "+idTCActual+"</h4>"
+            datosApp.Cuentas[index].Mov.forEach(movi => contenido +="<hr>"+movi.infoMovimiento()) 
+            break;
+        case "Debito": 
+            index = datosApp.Cuentas.findIndex(cue => cue.numTar == origen)
+            contenido = "<h4>T. de Debito: "+idTCActual+"</h4>"
+            datosApp.Cuentas[index].Mov.forEach(movi => contenido +="<hr>"+movi.infoMovimiento())   
+            break;
+        case "Credito":
+            index = datosApp.TsCredito.findIndex(cue => cue.numTar == origen)
+            contenido = "<h4>T. de Credito: "+idTCActual+"</h4>"
+            datosApp.TsCredito[index].Mov.forEach(movi => contenido +="<hr>"+movi.infoMovimiento())
+            break;
+    }
+    divmovi.innerHTML=contenido
+}
+
+//Mostrar estado de cuenta
+btec.addEventListener("click",mostrarEstadoCuenta)
+
+function mostrarEstadoCuenta(){
+    let origen = idTCActual
+    let tipo = tipTCActual
+    let client = numCli
+    let index
+    let indexCli = indCli
+    let contenido = ""
+    let tablebody = document.querySelector("#estadoCuerpo")
+    let datCliente = document.querySelector("#estadoDatosCli")
+    let datCuenta = document.querySelector("#estadoDatosCoT")
+
+    datCliente.innerHTML=`Nombre de Cliente: ${datosApp.Clientes[indexCli].nomCom}
+    <br>No. Cliente: ${datosApp.Clientes[indexCli].numCli}
+    <br>Fecha de Nacimiento: ${datosApp.Clientes[indexCli].fechNac}
+    <br>Direccion: ${datosApp.Clientes[indexCli].direccion}
+    <br>Doc. Identificacion: ${datosApp.Clientes[indexCli].dni}`
+    tablebody.innerHTML=""
+    switch (tipo) {
+        case "Cuenta":
+            index = datosApp.Cuentas.findIndex(cue => cue.numCue == origen)
+            datosApp.Cuentas[index].Mov.forEach(movi => contenido +=movi.infoEstado())
+            datCuenta.innerHTML=`No. Cuenta: <strong>${datosApp.Cuentas[index].numCue}</strong>
+            <br>No. tarjeta: <strong>${datosApp.Cuentas[index].numTar}</strong>
+            <br>CLABE: <strong>${datosApp.Cuentas[index].clabe}</strong>
+            <br>Saldo Actual: <strong><span class="importe"> ${datosApp.Cuentas[index].saldo}</span></strong>`
+            break;
+        case "Debito": 
+            index = datosApp.Cuentas.findIndex(cue => cue.numTar == origen)
+            datosApp.Cuentas[index].Mov.forEach(movi => contenido +=movi.infoEstado())
+            datCuenta.innerHTML=`No. Cuenta: <strong>${datosApp.Cuentas[index].numCue}</strong>
+            <br>No. tarjeta: <strong>${datosApp.Cuentas[index].numTar}</strong>
+            <br>CLABE: <strong>${datosApp.Cuentas[index].clabe}</strong>
+            <br>Saldo Actual: <strong><span class="importe"> ${datosApp.Cuentas[index].saldo}</span></strong>`   
+            break;
+        case "Credito":
+            index = datosApp.TsCredito.findIndex(cue => cue.numTar == origen)
+            datosApp.TsCredito[index].Mov.forEach(movi => contenido +=movi.infoEstado())
+            datCuenta.innerHTML=`No. tarjeta: <strong>${datosApp.TsCredito[index].numTar}</strong>
+            <br>Estado: <strong>${datosApp.TsCredito[index].estado}</strong>
+            <br>Linea de Credito: <span class="importe"> <strong>${datosApp.TsCredito[index].linCre}</span></strong>
+            <br>Saldo Pendiente: <span class="importe"> <strong>${datosApp.TsCredito[index].salPen}</span></strong>`
+            break;
+    }
+    tablebody.innerHTML=contenido
+}
 
 //vaciar los datos al arreglo datosApp
 function llenarArreglo(aux){
     aux.Clientes.forEach(element => {datosApp.Clientes.push(new Cliente(element.nomCom,element.numCli,element.fechNac,element.direccion,element.dni,element.nipCli))})
     aux.Cuentas.forEach(element => {datosApp.Cuentas.push(new Cuenta(element.numCli,element.numCue,element.numTar,element.clabe,element.saldo,element.Mov))})
-    aux.TarsDebito.forEach(element => {datosApp.TsDebito.push(new TarjetaDebito(element.numCli,element.numCue,element.numTar,element.fechVen,element.nipTar,element.estado))})
-    aux.TarsCredito.forEach(element => {datosApp.TsCredito.push(new TarjetaCredito(element.numCli,element.numTar,element.fechVen,element.nipTar,element.estado,element.linCre,element.salPen))})
+    aux.TsDebito.forEach(element => {datosApp.TsDebito.push(new TarjetaDebito(element.numCli,element.numCue,element.numTar,element.fechVen,element.nipTar,element.estado))})
+    aux.TsCredito.forEach(element => {datosApp.TsCredito.push(new TarjetaCredito(element.numCli,element.numTar,element.fechVen,element.nipTar,element.estado,element.linCre,element.salPen,element.Mov))})
 }
 
 //cargar todos los datos del json
@@ -119,25 +204,13 @@ async function cargarJson(){
     llenarArreglo(datos)
     localStorage.setItem("dApp",JSON.stringify(datos))
     const data2 = JSON.parse(localStorage.getItem("dApp"))
-    console.log(data2)
-    console.log(numCli)
-    console.log(datosApp.Clientes[indCli])
-    console.log(datosApp.Cuentas)
-    console.log("leyo del JSON")
 }
 
 //cargar los datos del localStorage
 function cargarLocalStorage(){
     const datos = JSON.parse(localStorage.getItem("dApp"))
     llenarArreglo(datos)
-    console.log(datos)
-    console.log(numCli)
-    console.log(datosApp.Clientes[indCli])
-    console.log(datosApp.Cuentas)
-    console.log("leyo del LocalStorage")
 }
-
-
 
 //funciones para buscar cuentas y tarjetas
 function buscarCuentasCliente(ncli){
@@ -180,10 +253,34 @@ function buscarNipTarjeta(tipo,nTar){
         index = datosApp.TsCredito.findIndex(Tarjeta => Tarjeta.numTar == nTar)
         nip = datosApp.TsCredito[index].verNipTarjeta()
     }
-    console.log(nip)
     return nip
 }
 
+function buscarNombreReceptor(dat){
+    let longitud = dat.length
+    let index = -1
+    let Cliente = -1
+    let nombre = "No se encontro receptor"
+    if(longitud == 10 || longitud == 18 || longitud == 16){
+        switch (longitud) {
+            case 10:
+                index = datosApp.Cuentas.findIndex(cue => cue.numCue == dat)
+                break;
+            case 18:
+                index = datosApp.Cuentas.findIndex(cue => cue.clabe == dat)
+                break;
+            case 16:
+                index = datosApp.Cuentas.findIndex(cue => cue.numTar == dat)
+                break;
+        }
+    }
+    if(index >= 0){
+        Cliente = datosApp.Cuentas[index].numCli
+        index = datosApp.Clientes.findIndex(cli => cli.numCli == Cliente)
+        nombre = datosApp.Clientes[index].nomCom
+    } 
+    return nombre
+}
 
 //funciones para modificar el html segun el cliente
 function mostrarCuentas(id, saldo){
@@ -258,14 +355,11 @@ function selectTarOrCuen(){
     btTCActual.classList.add("btn-primary")
     activaropciones(this.querySelector(".tipoId").textContent)
     sltc.textContent = this.querySelector(".textoId").textContent
-    console.log(this.querySelector(".textoId").textContent)
     idTCActual = this.querySelector(".numId").textContent
     salTCActual = this.querySelector(".saldoId").textContent
     tipTCActual = this.querySelector(".tipoId").textContent
     cambianFormsModal()
     mostrarEstadoEnForm()
-    console.log(idTCActual)
-    console.log(salTCActual)
 }
 
 //activar opciones segun el boton seleccionado

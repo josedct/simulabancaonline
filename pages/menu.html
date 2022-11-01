@@ -76,7 +76,7 @@
     <!-- Modales para las diferentes opciones -->
     <!-- Modal transferir -->
     <div class="modal fade" id="formTran" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="formTranLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header text-center">
                 <h5 class="modal-title text-uppercase" id="formTranLabel">Transferencia</h5>
@@ -93,7 +93,7 @@
                     <input class="form-control form-control-sm text-uppercase mt-2 mb-2" type="text" name="" id="txtTranDestino" placeholder="Ingresar destino">
                     <input class="form-control form-control-sm text-uppercase mt-2 mb-2" type="text" name="" id="txtTranCantidad" placeholder="Cantidad">
                     <input class="form-control form-control-sm text-uppercase mt-2 mb-2" type="text" name="" id="txtTranConcepto" placeholder="Concepto">
-                    <input class="form-control form-control-sm text-uppercase mt-2 mb-2" type="text" name="" id="txtTranOrigen" disabled placeholder="Receptor">
+                    <input class="form-control form-control-sm text-uppercase mt-2 mb-2" type="text" name="" id="txtTranReceptor" disabled placeholder="Receptor">
                 </form>
             </div>
             <div class="modal-footer">
@@ -106,7 +106,7 @@
 
     <!-- Modal bloquear -->
     <div class="modal fade" id="formBloq" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="formBloqLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title text-uppercase" id="formBloqLabel">Bloquear</h5>
@@ -134,7 +134,7 @@
 
     <!-- Modal Tiempo Aire -->
     <div class="modal fade" id="formTiem" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="formTiemLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title text-uppercase" id="formTiemLabel">Recargar tiempo aire</h5>
@@ -148,7 +148,7 @@
                     <input class="form-control form-control-sm text-uppercase" type="text" name="" id="txtRecarOrigen" disabled value="125568">
                     <p>Saldo disponible: <span id="txtRecarSaldo"></span></p>
                     <h4 class="">Al numero:</h4>
-                    <input class="form-control form-control-sm text-uppercase mt-2 mb-2" type="text" name="" id="txtRecarNumTel" placeholder="XXXXXXXXXX" maxlength="10" minlength="10">
+                    <input class="form-control form-control-sm text-uppercase mt-2 mb-2" type="text" name="" id="txtRecarNumTel" placeholder="XXXXXXXXXX" maxlength="10">
 
                     <select class="form-control form-control-sm text-uppercase mt-2 mb-2" name="" id="txtRecarCantSaldo">
                         <option disabled selected hidden>Seleccione el Saldo a recargar</option>
@@ -159,6 +159,7 @@
                         <option value="100">$100.00</option>
                         <option value="150">$150.00</option>
                         <option value="200">$200.00</option>
+                        <option value="500">$500.00</option>
                     </select>
                 </form>
             </div>
@@ -172,7 +173,7 @@
 
     <!-- Pagar Tarjeta -->
     <div class="modal fade" id="formPtar" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="formPtarLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title text-uppercase" id="formPtarLabel">Pagar Tarjeta de credito</h5>
@@ -204,7 +205,7 @@
 
     <!-- Pagar Servicio -->
     <div class="modal fade" id="formPser" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="formPserLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title text-uppercase" id="formPserLabel">Pagar un servicio</h5>
@@ -218,7 +219,7 @@
                     <input class="form-control form-control-sm text-uppercase" type="text" name="" id="txtPagarSOrigen" disabled value="125568">
                     <p>Saldo disponible: <span id="txtPagarSSaldo"></span></p>
                     <h4 class="">Datos del pago de sevicio:</h4>
-                    <input class="form-control form-control-sm text-uppercase mb-2 mt-2" type="text" name="" id="txtPagarSReferencia" placeholder="Referencia">  
+                    <input class="form-control form-control-sm text-uppercase mb-2 mt-2" type="text" name="" id="txtPagarSReferencia" placeholder="Referencia (17 Digitos)" maxlength="17">  
                     <input class="form-control form-control-sm text-uppercase mb-2 mt-2" type="text" name="" id="txtPagarSCantidad" placeholder="Cantidad">  
                     <input class="form-control form-control-sm text-uppercase mb-2 mt-2" type="text" name="" id="txtPagorSConcepto" placeholder="Concepto o Motivo del pago">
                 </form>  
@@ -233,7 +234,7 @@
 
     <!-- Ver nip -->
     <div class="modal fade" id="formVnip" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="formVnipLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title text-uppercase" id="formVnipLabel">Mostrar nip</h5>
@@ -254,7 +255,7 @@
 
     <!-- Estado cuenta -->
     <div class="modal fade" id="formEcue" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="formEcueLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title text-uppercase" id="formEcueLabel">Ver estado de cuenta</h5>
@@ -263,11 +264,30 @@
                 </button>
             </div>
             <div class="modal-body">
-            ...
+                <div class="d-flex justify-content-between">
+                    <div id="estadoDatosCoT" class="text-left p-2">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, nulla porro? Eligendi autem quod recusandae nam odit vero porro ullam doloribus eum accusamus quam possimus, error atque optio, quae maiores!
+                    </div>
+                    <div id="estadoDatosCli" class="text-right p-2">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur eos, sapiente veritatis iste assumenda delectus alias soluta nam! Saepe doloremque qui modi exercitationem quo omnis non excepturi. Qui, aliquid illum?
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col" class="text-right">Importe</th>
+                      </tr>
+                    </thead>
+                    <tbody id="estadoCuerpo">
+                      
+                    </tbody>
+                  </table>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary text-uppercase" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary text-uppercase" id="btEcue">Aplicar</button>
+                <button type="button" class="btn btn-primary text-uppercase" id="btEcue">Ok</button>
             </div>
         </div>
         </div>
@@ -275,20 +295,19 @@
 
     <!-- Movimientos -->
     <div class="modal fade" id="formMovi" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="formMoviLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-uppercase" id="formMoviLabel">Ver movimientos del ultimo mes</h5>
+                <h5 class="modal-title text-uppercase" id="formMoviLabel">Ver movimientos</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body text-center text-uppercase" id="listMov">
             ...
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary text-uppercase" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary text-uppercase" id="btMovi">Aplicar</button>
+                <button type="button" class="btn btn-primary text-uppercase" id="btMovi">Ok</button>
             </div>
         </div>
         </div>

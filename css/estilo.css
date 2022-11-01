@@ -2,7 +2,7 @@
     width: 3.5rem;
 }
 
-.saldoId::before, #txtTranSaldo::before, #txtRecarSaldo::before, #txtPagarTSaldo::before, #txtPagarSalPend::before{
+.saldoId::before, #txtTranSaldo::before, #txtRecarSaldo::before, #txtPagarTSaldo::before, #txtPagarSalPend::before, .importe::before{
     content: '$'!important;
 }
 

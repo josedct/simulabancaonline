@@ -36,6 +36,6 @@ class Cuenta{
     }
 
     regIngreso(cantidad){
-        this.saldo+=cantidad
+        this.saldo += parseFloat(cantidad)
     }
 }
