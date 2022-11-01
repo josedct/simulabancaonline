@@ -123,7 +123,6 @@ function transferir(){
         datosApp.Cuentas[indexO].regCargo(cantidad)
         datosApp.Cuentas[indexO].Mov.push(new Movimiento(fechaMov.getDate()+"/"+(fechaMov.getMonth()+1)+"/"+fechaMov.getFullYear(),concepto+" Destinatario:"+nombreRecep,parseFloat(cantidad),"cargo"))
         datosApp.Cuentas[indexD].regIngreso(cantidad)
-        console.log(nomCli)
         datosApp.Cuentas[indexD].Mov.push(new Movimiento(fechaMov.getDate()+"/"+(fechaMov.getMonth()+1)+"/"+fechaMov.getFullYear(),concepto+" Origen:"+nomCli,parseFloat(cantidad),"ingreso"))
 
         //actualizar el arreglo de datos
